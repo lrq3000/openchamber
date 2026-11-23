@@ -17,6 +17,7 @@ export const createInitialUIState = (): Pick<UIStore,
   | 'sidebarFoldedForExpandedZone'
   | 'sidebarWidth'
   | 'contextPanelByDirectory'
+  | 'contextZoneReturnStack'
   | 'contextRailOrder'
   | 'contextRailHiddenSurfaces'
   | 'mobileWorkspaceTabOrder'
@@ -186,6 +187,7 @@ export const createInitialUIState = (): Pick<UIStore,
   | 'agentNotifyToolEnabled'
   | 'agentUsageToolEnabled'
   | 'agentTerminalToolEnabled'
+  | 'agentActionsToolEnabled'
   | 'agentImageToolEnabled'
   | 'agentImageModel'
   | 'agentMemoryDreamingEnabled'
@@ -244,6 +246,7 @@ export const createInitialUIState = (): Pick<UIStore,
   sidebarFoldedForExpandedZone: false,
   sidebarWidth: LEFT_SIDEBAR_DEFAULT_WIDTH,
   contextPanelByDirectory: {},
+  contextZoneReturnStack: {},
   contextRailOrder: [],
   contextRailHiddenSurfaces: [],
   mobileWorkspaceTabOrder: [],
@@ -418,6 +421,7 @@ export const createInitialUIState = (): Pick<UIStore,
   agentNotifyToolEnabled: false,
   agentUsageToolEnabled: false,
   agentTerminalToolEnabled: false,
+  agentActionsToolEnabled: false,
   agentImageToolEnabled: false,
   agentImageModel: '',
   agentMemoryDreamingEnabled: false,

@@ -33,6 +33,7 @@ import { sharePagesI18n } from './share-pages.i18n';
 import { receivedPagesI18n } from './received-pages.i18n';
 import { memoryDreamingI18n } from './memory-dreaming.i18n';
 import { usageToolI18n } from './usage-tool.i18n';
+import { externalOpenCodePluginI18n } from './external-opencode-plugin.i18n';
 import { openchamberToolsLayoutI18n } from './openchamber-tools-layout.i18n';
 import { openchamberToolOutputI18n } from './openchamber-tool-output.i18n';
 import { opencodeToolOutputI18n } from './opencode-tool-output.i18n';
@@ -60,6 +61,7 @@ import { mcpGridI18n } from './mcp-grid.i18n';
 import { pluginsGridI18n } from './plugins-grid.i18n';
 import { integrationsCatalogI18n } from './integrations-catalog.i18n';
 import { diffFindI18n } from './diff-find.i18n';
+import { contextWindowI18n } from './context-window.i18n';
 import { markdownOutlineI18n } from './markdown-outline.i18n';
 import { markdownGithubI18n } from './markdown-github.i18n';
 import { autocompleteScopeI18n } from './autocomplete-scope.i18n';
@@ -229,6 +231,7 @@ export const dict = {
   ...receivedPagesI18n.en,
   ...memoryDreamingI18n.en,
   ...usageToolI18n.en,
+  ...externalOpenCodePluginI18n.en,
   ...openchamberToolsLayoutI18n.en,
   ...openchamberToolOutputI18n.en,
   ...opencodeToolOutputI18n.en,
@@ -255,6 +258,7 @@ export const dict = {
   ...pluginsGridI18n.en,
   ...integrationsCatalogI18n['en'],
   ...diffFindI18n['en'],
+  ...contextWindowI18n['en'],
   ...markdownOutlineI18n['en'],
   ...markdownGithubI18n['en'],
   ...autocompleteScopeI18n['en'],
@@ -1329,6 +1333,8 @@ export const dict = {
   'worktree.bootstrap.toast.invalidConfiguration': 'Review the repository submodule and Git LFS configuration, then retry.',
   'worktree.bootstrap.toast.repositoryTooManyFiles': 'The repository has too many files.',
   'worktree.bootstrap.toast.branchNameConflict': 'The branch name clashes with an existing branch: the same name, or one nested inside the other. Rename the branch and create the worktree again.',
+  'worktree.bootstrap.toast.submoduleSourceLocal': 'Submodules weren\'t fetched: OpenChamber fetches them only through a network remote, and this worktree has none to use. The repository\'s remote is a folder on this computer, it has no remote, or its branch tracks none. Work in the repository folder itself, or start the worktree from a branch whose upstream is a network remote.',
+  'worktree.bootstrap.toast.lfsSourceLocal': 'Git LFS files weren\'t fetched: OpenChamber fetches them only through a network remote, and this worktree has none to use. The repository\'s remote is a folder on this computer, it has no remote, or its branch tracks none. Work in the repository folder itself, or start the worktree from a branch whose upstream is a network remote.',
   'worktree.bootstrap.toast.cancelled': 'Worktree setup was cancelled. Retry when you are ready.',
   'worktree.bootstrap.toast.transportFailed': 'Check repository access and network connectivity, then retry.',
   'worktree.bootstrap.toast.timeoutDescription': 'The worktree was created, but background setup timed out.',
@@ -1692,6 +1698,7 @@ export const dict = {
   'contextPanel.actions.collapsePanel': 'Collapse panel',
   'contextPanel.actions.expandPanel': 'Expand panel',
   'contextPanel.actions.closePanel': 'Close panel',
+  'contextPanel.actions.backToPanel': 'Back to {panel}',
   'contextPanel.actions.resizePanelAria': 'Resize context panel',
   'contextPanel.iframe.sessionChatTitle': 'Session chat {sessionID}',
   'contextPanel.preview.actions.reload': 'Reload preview',
@@ -1921,7 +1928,8 @@ export const dict = {
   'contextSidebar.tokens.cacheRead': 'Cache read',
   'contextSidebar.tokens.cacheWrite': 'Cache write',
   'contextSidebar.tokens.cacheHit': 'Cache hit',
-  'chat.workStatus.replyCacheHit': 'Cache hit (reply)',
+  'chat.workStatus.replyCacheHit': 'Prompt cache',
+  'chat.workStatus.replyCacheHitDescription': 'Share of the prompt read from cache in the latest reply.',
   'contextSidebar.actions.copyJson': 'Copy JSON',
   'contextSidebar.actions.copy': 'Copy',
   'contextSidebar.actions.copied': 'Copied',
@@ -1996,6 +2004,7 @@ export const dict = {
   'diffView.scope.changed': 'Changed',
   'diffView.scope.staged': 'Staged',
   'diffView.scope.lastTurn': 'Last turn',
+  'diffView.scope.earlierTurn': 'Earlier turn',
   'diffView.scope.branch': 'Branch',
   'diffView.branch.resolvingBase': 'Detecting base branch...',
   'diffView.branch.noBaseTitle': 'No base branch',
@@ -2273,6 +2282,7 @@ export const dict = {
   'terminalView.quickKeys.enterAria': 'Enter',
   'terminalView.tabs.closeTabTitle': 'Close tab',
   'terminalView.tabs.newTabTitle': 'New tab',
+  'terminalView.tabs.sheetTitle': 'Terminals',
   'terminalView.tabs.menu.rename': 'Rename',
   'terminalView.tabs.renameDialog.title': 'Rename terminal',
   'terminalView.tabs.renameDialog.placeholder': 'Terminal name',
@@ -2471,7 +2481,6 @@ export const dict = {
   'session.githubIntegration.validation.branchAlreadyCheckedOut': 'Branch is already checked out in a worktree',
   'session.githubIntegration.validation.failed': 'Validation failed',
   'chat.fileAttachment.toast.tooLarge': '{name} is too large to attach (over {size}). Mention it with @ if it is in the project.',
-  'chat.fileAttachment.toast.heicConversionFailed': '{name} could not be converted from HEIC to JPEG, so it was not attached. Save the photo as JPEG and attach it again.',
   'chat.fileAttachment.toast.overSendLimit': '{name} is too large to attach (over {size}).',
   'chat.fileAttachment.toast.documentAttachedAsPath': 'Couldn\'t convert {name} to text, so the agent gets its path and reads the file itself.',
   'chat.fileAttachment.activeEditor.addFile': 'Add file:{name} to context',
@@ -2554,6 +2563,10 @@ export const dict = {
   'chat.toast.opencodeRestartInterrupted.description': 'OpenCode restarted while a response was still running. Send a message to continue.',
   'chat.toast.opencodeRestartInterrupted.autoResumeDescription': 'OpenCode restarted while a response was still running. The chat will resume automatically; send a message if it does not.',
   'chat.toast.opencodeRestartInterrupted.openSession': 'Open session',
+  'chat.toast.claudePluginRetired.title': 'Claude moved to Claude Agent',
+  'chat.toast.claudePluginRetired.description': 'The opencode-claude plugin is no longer needed, so it was removed. Claude now runs on the built-in Claude Agent provider with your Claude Code login. If Claude models were picked as defaults in Settings, pick them again.',
+  'chat.toast.claudePluginRetired.unconnectedTitle': 'opencode-claude plugin removed',
+  'chat.toast.claudePluginRetired.unconnectedDescription': 'The opencode-claude plugin is no longer needed, so it was removed. To keep using Claude with your Claude Code login, connect Claude Agent in Settings → Providers.',
   'chat.toast.shareAnswer.openSession': 'Open session',
   'chat.errorBoundary.title': 'Chat Error',
   'chat.errorBoundary.description': 'The chat interface encountered an error. This might be due to a temporary network issue or corrupted message data.',
@@ -2791,15 +2804,17 @@ export const dict = {
   'chat.chatInput.toast.attachFileFailed': 'Failed to attach file',
   'chat.chatInput.mentionChip.editHint': 'Double-click to edit as text',
   'chat.chatInput.toast.attachNamedFailed': 'Failed to attach {name}',
-  'chat.chatInput.toast.unsupportedAttachmentModalities': '{model} does not support {modalities} input required by {files}. You can still send the message, but these attachments may be ignored.',
-  'chat.chatInput.toast.imagesSaving': 'Saving {files}…',
-  'chat.chatInput.toast.imagesSavedForTextModel': '{model} can\'t read images. Saved {files} to {folder}.',
+  'chat.chatInput.toast.unsupportedAttachmentModalities': "{model} can't read {modalities} input in {files}. When you send, the agent will receive paths to the saved files.",
   'chat.chatInput.toast.imagesSentAsPathsForTextModel': '{model} can\'t read images. The message will give it a file path for {files}.',
-  'chat.chatInput.toast.textModelImageSaveFailed': 'Couldn\'t save {files} as files for a model that can\'t read images. The message wasn\'t sent.',
-  'chat.chatInput.toast.imageSaveFailed': 'Couldn\'t save {files}. Attached instead.',
-  'chat.chatInput.toast.imagesSaved': 'Saved {files} to {folder}.',
+  'chat.chatInput.toast.textModelImageSaveFailed': "Couldn't save {files} for the agent to open. Message not sent. Try again or choose a model that can read these files.",
   'chat.chatInput.toast.imageCopySaveFailed': 'Couldn\'t save {files}.',
   'chat.chatInput.toast.someFilesSkipped': 'Some files were skipped:\n{summary}',
+  'chat.chatInput.toast.sharedFileTooLarge': 'too large',
+  'chat.chatInput.toast.sharedFileBatchLimit': 'share size limit',
+  'chat.chatInput.toast.sharedFileTooMany': 'too many files',
+  'chat.chatInput.toast.sharedFileUnsupportedType': 'unsupported type',
+  'chat.chatInput.toast.sharedFileUnreadable': 'unreadable',
+  'chat.chatInput.toast.sharedFileTimedOut': 'stopped responding',
   'chat.chatInput.toast.vscodePickFailed': 'Failed to pick files in VS Code',
   'chat.chatInput.toast.openSessionFirst': 'Open a session first',
   'chat.chatInput.toast.dictationKeptForOriginalSession': 'Dictation saved as a draft in the session where you started it',
